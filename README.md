@@ -1,8 +1,25 @@
-# Basic Rust REST API
+# Let's Get Rusty
 
-A simple REST API built with Rust and Actix-web that demonstrates basic CRUD operations for managing books.
+A learning repository for Rust programming language featuring practical examples and projects.
 
-## Features
+## Project Structure
+
+```
+lets_get_rusty/
+├── README.md
+└── basic-rust-api/
+    ├── Cargo.toml
+    └── src/
+        └── main.rs
+```
+
+## Projects
+
+### 1. Basic Rust API
+
+A simple REST API built with Rust and Actix-web demonstrating basic CRUD operations for managing books.
+
+#### Features
 
 - RESTful endpoints for managing books
 - In-memory storage using Mutex for thread-safe data access
@@ -10,55 +27,11 @@ A simple REST API built with Rust and Actix-web that demonstrates basic CRUD ope
 - Basic error handling
 - Concurrent request processing
 
-## Prerequisites
+#### Running the API
 
-- Rust (latest stable version)
-- Cargo (comes with Rust)
-
-## Dependencies
-
-```toml
-[dependencies]
-actix-web = "4.4.0"
-serde = { version = "1.0", features = ["derive"] }
-serde_json = "1.0"
-```
-
-## Project Structure
-
-```
-basic-rust-api/
-├── Cargo.toml
-├── Cargo.lock
-└── src/
-    └── main.rs
-```
-
-## API Endpoints
-
-| Method | Endpoint     | Description          |
-|--------|-------------|---------------------|
-| GET    | /books      | Get all books       |
-| GET    | /books/{id} | Get a book by ID    |
-| POST   | /books      | Create a new book   |
-| DELETE | /books/{id} | Delete a book by ID |
-
-## Data Model
-
-```rust
-struct Book {
-    id: u32,
-    title: String,
-    author: String,
-}
-```
-
-## Installation and Running
-
-1. Clone the repository:
+1. Navigate to the API directory:
 ```bash
-git clone https://github.com/Ismat-Samadov/lets_get_rusty.git
-cd lets_get_rusty
+cd basic-rust-api
 ```
 
 2. Build the project:
@@ -73,39 +46,49 @@ cargo run
 
 The server will start on `http://127.0.0.1:8080`
 
-## Usage Examples
+#### API Endpoints
 
-### Create a Book
+| Method | Endpoint     | Description          |
+|--------|-------------|---------------------|
+| GET    | /books      | Get all books       |
+| GET    | /books/{id} | Get a book by ID    |
+| POST   | /books      | Create a new book   |
+| DELETE | /books/{id} | Delete a book by ID |
+
+#### Usage Examples
+
+Create a Book:
 ```bash
 curl -X POST -H "Content-Type: application/json" -d '{"id": 1, "title": "Rust Programming", "author": "John Doe"}' http://localhost:8080/books
 ```
 
-### Get All Books
+Get All Books:
 ```bash
 curl http://localhost:8080/books
 ```
 
-### Get a Specific Book
+Get a Specific Book:
 ```bash
 curl http://localhost:8080/books/1
 ```
 
-### Delete a Book
+Delete a Book:
 ```bash
 curl -X DELETE http://localhost:8080/books/1
 ```
 
-## Error Handling
+## Prerequisites
 
-The API handles various error cases:
-- Returns 404 Not Found when requesting non-existent books
-- Returns 201 Created when successfully creating a book
-- Returns 200 OK for successful operations
-- Returns 400 Bad Request for invalid JSON payloads
+- Rust (latest stable version)
+- Cargo (comes with Rust)
 
-## Concurrency
+## Installation
 
-The API uses Rust's `Mutex` to handle concurrent access to the books data store, making it safe for multiple clients to access and modify the data simultaneously.
+Clone the repository:
+```bash
+git clone https://github.com/Ismat-Samadov/lets_get_rusty.git
+cd lets_get_rusty
+```
 
 ## Contributing
 
